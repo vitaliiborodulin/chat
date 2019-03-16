@@ -1,5 +1,6 @@
 <?php
 include_once('m/messages.php');
+include_once('m/system.php');
 $id = $_GET['id'] ?? null;
 $err404 = false;
 
@@ -14,5 +15,8 @@ if ($id === null || $id == '' || !ctype_digit($id)) {
 
 }
 
-include 'v/v_message.php';
+template('v_message',[
+    'err404'=> $err404,
+    'message'=> $message
+]);
 

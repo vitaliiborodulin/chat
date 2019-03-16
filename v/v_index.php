@@ -1,6 +1,6 @@
 <a href="index.php?view=inline">Отобразить в линию</a>
 <div>
-    <? foreach ($messages as $message) : ?>
+    <?php foreach ($messages as $message) : ?>
         <div>
             <em><?= $message['dt'] ?></em>
             <strong><?= $message['title'] ?></strong>
@@ -8,7 +8,7 @@
             <a href="message.php?id=<?= $message['id_post'] ?>"><?= $message['content'] ?></a>
         </div>
         <hr>
-    <? endforeach; ?>
+    <?php endforeach; ?>
 </div>
 
 <a href="add.php">Добавить</a>

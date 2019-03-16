@@ -1,6 +1,7 @@
 <?php
 
 include_once ('m/messages.php');
+include_once ('m/system.php');
 
 $messages = messages_all();
 
@@ -15,7 +16,9 @@ switch ($_GET['view'] ?? null) {
         $template = 'v_index';
 }
 
-include "v/$template.php";
+template($template,[
+    'messages'=> $messages
+]);
 
 
 

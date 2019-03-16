@@ -1,6 +1,6 @@
-<? if($err404): ?>
+<?php if($err404): ?>
     404
-<? else : ?>
+<?php else : ?>
 
     <div>
         <em><?= $message['dt'] ?></em>

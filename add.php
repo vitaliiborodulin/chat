@@ -1,6 +1,7 @@
 <?php
 
 include_once('m/messages.php');
+include_once('m/system.php');
 
 
 if (count($_POST) > 0) {
@@ -22,4 +23,8 @@ if (count($_POST) > 0) {
     $msg = 'Для добавления сообщения отправьте форму';
 }
 
-include 'v/v_add.php';
+template('v_add',[
+    'title'=> $title,
+    'content'=> $content,
+    'msg'=> $msg,
+]);
