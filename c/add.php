@@ -1,9 +1,5 @@
 <?php
 
-include_once('m/messages.php');
-include_once('m/system.php');
-
-
 if (count($_POST) > 0) {
     $title = trim($_POST['title']);
     $content = trim($_POST['content']);
@@ -13,7 +9,7 @@ if (count($_POST) > 0) {
     } else {
 
         $id = messages_add($title, $content);
-        header("Location: message.php?id=$id");
+        header("Location: index.php?c=message&id=$id");
         exit();
     }
 
@@ -23,8 +19,10 @@ if (count($_POST) > 0) {
     $msg = 'Для добавления сообщения отправьте форму';
 }
 
-template('v_add',[
-    'title'=> $title,
-    'content'=> $content,
-    'msg'=> $msg,
+$inner = template('v_add', [
+    'title' => $title,
+    'content' => $content,
+    'msg' => $msg,
 ]);
+
+$title = 'Новое сообщение';

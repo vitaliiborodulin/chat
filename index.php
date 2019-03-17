@@ -1,25 +1,25 @@
 <?php
+//подключаем общие вещи для контроллеров
+include_once('m/messages.php');
+include_once('m/system.php');
 
-include_once ('m/messages.php');
-include_once ('m/system.php');
+session_start();
+/*
+ * Проверки - что контроллер есть в папке
+ *             - что состоит из [a-zA-Z0-9_]
+ * иначе выкинуть ошибка 404
+ * */
 
-$messages = messages_all();
+//выбираем контроллер
+$controller = $_GET['c'] ?? 'home';
+include_once "c/$controller.php";
 
-switch ($_GET['view'] ?? null) {
-    case 'base':
-        $template = 'v_index';
-        break;
-    case 'inline':
-        $template = 'v_index_inline';
-        break;
-    default:
-        $template = 'v_index';
-}
 
-template($template,[
-    'messages'=> $messages
+//выводим общий шаблон
+echo template('v_main', [
+    'title' => $title,
+    'content' => $inner
 ]);
-
 
 
 

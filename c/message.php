@@ -1,6 +1,5 @@
 <?php
-include_once('m/messages.php');
-include_once('m/system.php');
+
 $id = $_GET['id'] ?? null;
 $err404 = false;
 
@@ -15,8 +14,11 @@ if ($id === null || $id == '' || !ctype_digit($id)) {
 
 }
 
-template('v_message',[
-    'err404'=> $err404,
-    'message'=> $message
+$inner = template('v_message', [
+    'err404' => $err404,
+    'message' => $message ?? null
 ]);
+
+
+$title = $err404 ? '404' : 'Просмотр сообщения';
 
