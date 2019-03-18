@@ -1,7 +1,6 @@
 <?php
 
 function template($filename, $vars = []){
-
     extract($vars);
 
     ob_start();

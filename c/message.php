@@ -14,11 +14,12 @@ if ($id === null || $id == '' || !ctype_digit($id)) {
 
 }
 
-$inner = template('v_message', [
-    'err404' => $err404,
-    'message' => $message ?? null
-]);
+if (!$err404) {
 
-
-$title = $err404 ? '404' : 'Просмотр сообщения';
+    $title = 'Просмотр сообщения';
+    $inner = template('v_message', [
+        'err404' => $err404,
+        'message' => $message ?? null
+    ]);
+}
 
